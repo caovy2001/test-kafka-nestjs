@@ -8,7 +8,7 @@ export class AppController {
   constructor() {
     const kafkaConfig: KafkaConfig = {
       clientId: 'my-app',
-      brokers: ['localhost:29092'], // Your Kafka broker(s) configuration
+      brokers: ['localhost:9092'], // Your Kafka broker(s) configuration
     };
     this.kafka = new Kafka(kafkaConfig);
   }
