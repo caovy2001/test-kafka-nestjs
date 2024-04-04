@@ -1,5 +1,4 @@
 import { Controller, Get, Post } from '@nestjs/common';
-import { AppService } from './app.service';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { Kafka, KafkaConfig } from 'kafkajs';
 
@@ -16,7 +15,7 @@ export class AppController {
 
   @Get('/produce')
   async produceMessage(): Promise<void> {
-    const topic = 'my-first-topic';
+    const topic = 'user-log';
     const message = 'Hello Kafka!';
     const producer = this.kafka.producer();
     await producer.connect();
@@ -27,15 +26,9 @@ export class AppController {
     await producer.disconnect();
   }
 
-  @MessagePattern('my-first-topic', { groupId: 'log-consumer' }) // Our topic name
+  @MessagePattern('user-log', { groupId: 'log-consumer' }) // Our topic name
   getHello2(@Payload() message) {
     console.log(message);
     return 'Hello World';
   }
-
-  // @MessagePattern('my-first-topic', { groupId: 'log-consumer2' }) // Our topic name
-  // getHello22(@Payload() message) {
-  //   console.log(message + ' 2');
-  //   return 'Hello World';
-  // }
 }
