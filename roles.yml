@@ -3,6 +3,9 @@ rbac:
     - name: "admins"
       clusters:
         - local
+        - dev
+        - staging
+        - prod
       subjects:
         - provider: oauth_github
           type: user
