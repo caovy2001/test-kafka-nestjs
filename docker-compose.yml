@@ -53,11 +53,14 @@ services:
     depends_on:
       - zookeeper
       - kafka
+    volumes:
+      - ./roles.yml:/roles.yml
     environment:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
       KAFKA_CLUSTERS_0_METRICS_PORT: 9997
       DYNAMIC_CONFIG_ENABLED: 'true'
+      SPRING_CONFIG_ADDITIONAL-LOCATION: /roles.yml
     networks:
       - networks
 
