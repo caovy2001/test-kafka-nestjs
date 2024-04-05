@@ -1,13 +1,12 @@
 rbac:
   roles:
-    - name: "memelords"
+    - name: "admins"
       clusters:
         - local
       subjects:
         - provider: oauth_github
           type: user
           value: "caovy2001"
-
       permissions:
         - resource: applicationconfig
           actions: all
@@ -35,4 +34,5 @@ rbac:
           actions: all
           
         - resource: acl
+          value: ".*"
           actions: [ view ]
