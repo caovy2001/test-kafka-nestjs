@@ -62,7 +62,7 @@ services:
       DYNAMIC_CONFIG_ENABLED: 'true'
       AUTH_TYPE: "LOGIN_FORM"
       SPRING_SECURITY_USER_NAME: admin
-      SPRING_SECURITY_USER_PASSWORD: pass
+      SPRING_SECURITY_USER_PASSWORD: Thisispassword123@
     networks:
       - networks
 
